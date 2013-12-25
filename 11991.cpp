@@ -32,30 +32,29 @@ typedef pair<char, int> ci;
 
 int n, m, num, k, val, pos;
 vector<vector<int> > v;
-int a[100010];
+map<int, vector<int> > mp;
 
 int main()
 {
-	v.assign(1000005, vector<int>());
 	while(scanf("%d %d", &n, &m)!=EOF)
 	{
-		v.clear();
+		mp.clear();
 		for(pos=1;pos<=n;++pos)
 		{
 			scanf("%d", &val);
-			a[pos]=val;
-			v[val].push_back(pos);
+			mp[val].push_back(pos);
 		}
 		while(m--)
 		{
 			scanf("%d %d", &k, &val);
-			if(v[val].size()<k)
+			if(mp.count(val)==0)
 				printf("0\n");
 			else
-				printf("%d\n", v[val][k-1]);
+			if(mp[val].size()<k)
+				printf("0\n");
+			else
+			printf("%d\n", mp[val][k-1]);
 		}
-		for(pos=1;pos<=n;++pos)
-			v[a[pos]].clear();
 	}
 	return 0;
 }
