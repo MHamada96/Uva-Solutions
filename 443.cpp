@@ -56,11 +56,11 @@ int main()
         scanf("%d", &n);
         if(!n)
             break;
-        if(n>=11 && n<=13)
-            printf("The %lldth number is %lld.\n",(ll)n,  v[n-1]);
+        if(n%100>=11 && n%100<=13)
+            printf("The %dth humble number is %lld.\n", n, v[n-1]);
         else
         {
-            printf("The %lld%s number is %lld.\n", (ll)n, (n%10==1)?"st":((n%10==2)?"nd":(((n%10)==3)?"rd":"th")), v[n-1]);
+            printf("The %d%s humble number is %lld.\n", n, (n%10==1)?"st":((n%10==2)?"nd":(((n%10)==3)?"rd":"th")), v[n-1]);
         }
     }
     return 0;
